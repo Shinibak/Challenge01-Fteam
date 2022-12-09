@@ -1,13 +1,19 @@
 import 'package:dio/dio.dart';
+import '../datasource/client_datasource.dart';
+import '../datasource/clients/client_http.dart';
 import '../models/client_model.dart';
+import 'Iclient_repository.dart';
 
-class ClienteRepository {
-  final dio = Dio();
-  final url = 'https://api.github.com/users/Flutterando';
+class ClientRepository implements IClientRepository {
+ 
 
-  Future fetchClient() async {
-    final response = await dio.get(url);
-    final client = ClientModel.fromJson(response.data);
+  @override
+  Future<GithubUserModel> getClient() async {
+    final dio = Dio();
+    final dioService = DioHttpService(dio);
+    IGetClientDatasource getClientDatasource = GetClientDatasource(dioService);
+    final response = await getClientDatasource.call();
+    final client = GithubUserModel.fromJson(response);
     return client;
   }
 }

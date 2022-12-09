@@ -1,11 +1,13 @@
 import '../models/client_model.dart';
+import '../repositories/Iclient_repository.dart';
 import '../repositories/client_repository.dart';
 
 class ClientController {
-  ClientModel? clients;
-  final repository = ClienteRepository();
+  
+  GithubUserModel? client;
+  IClientRepository repository = ClientRepository();
 
-  Future startCrient() async {
-    clients = await repository.fetchClient();
+  Future<void> startClient() async {
+    client = await repository.getClient();
   }
 }
