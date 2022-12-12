@@ -10,5 +10,7 @@ class DioHttpService implements IHttpService {
   DioHttpService(this.dio);
 
   @override
-  Future  get(String url) async => (await dio.get(url)).data;
+  Future get(String url) async {
+    return (await dio.get(url)).data;
+  }
 }

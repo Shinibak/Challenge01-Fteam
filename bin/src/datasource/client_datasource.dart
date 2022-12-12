@@ -2,14 +2,14 @@ import 'package:dio/dio.dart';
 import '../consts/url_const.dart';
 import 'clients/client_http.dart';
 
-abstract class IGetClientDatasource {
+abstract class IClientDatasource {
   Future<dynamic> call();
 }
 
-class GetClientDatasource implements IGetClientDatasource {
+class ClientDatasource implements IClientDatasource {
   final IHttpService service;
 
-  GetClientDatasource(this.service);
+  ClientDatasource(this.service);
 
   @override
   Future<dynamic> call() async {

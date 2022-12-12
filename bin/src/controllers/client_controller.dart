@@ -1,13 +1,20 @@
 import '../models/client_model.dart';
 import '../repositories/Iclient_repository.dart';
-import '../repositories/client_repository.dart';
 
-class ClientController {
+abstract class IClientController {
+  Future <dynamic> startClient();
+}
+
+class ClientController extends IClientController {
+  final IClientRepository repository;
+
+  ClientController(this.repository);
   
   GithubUserModel? client;
-  IClientRepository repository = ClientRepository();
 
-  Future<void> startClient() async {
+  @override
+  Future <dynamic> startClient() async {
     client = await repository.getClient();
+    return print(client!.toJson());
   }
 }
