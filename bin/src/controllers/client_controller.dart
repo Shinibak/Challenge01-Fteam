@@ -1,5 +1,5 @@
 import '../models/client_model.dart';
-import '../repositories/Iclient_repository.dart';
+import '../repositories/client_repository.dart';
 
 abstract class IClientController {
   Future <dynamic> startClient();

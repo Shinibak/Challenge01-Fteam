@@ -7,8 +7,8 @@ import 'src/repositories/client_repository.dart';
 main() async {
   final dio = Dio();
   final dioService = DioHttpService(dio);
-  final clientDatasouse = ClientDatasource(dioService);
-  final clientRepository = ClientRepository(clientDatasouse);
+  final clientDatasource = ClientDatasource(dioService);
+  final clientRepository = ClientRepository(clientDatasource);
   final controller = ClientController(clientRepository);
   await controller.startClient();
 }

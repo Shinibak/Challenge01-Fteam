@@ -1,6 +1,9 @@
 import '../datasource/client_datasource.dart';
 import '../models/client_model.dart';
-import 'Iclient_repository.dart';
+
+abstract class IClientRepository  {
+  Future<GithubUserModel> getClient();
+}
 
 class ClientRepository implements IClientRepository {
   final IClientDatasource getClientDatasource;
