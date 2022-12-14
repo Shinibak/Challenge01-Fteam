@@ -5,12 +5,13 @@ abstract class IHttpService {
 }
 
 class DioHttpService implements IHttpService {
-  final Dio dio;
+  final Dio _dio;
 
-  DioHttpService(this.dio);
-  
+  DioHttpService(this._dio);
+
   @override
-  Future get(String url) async {
-    return (await dio.get(url)).data;
+  Future<dynamic> get(String url) async {
+    final response = await _dio.get(url);
+    return response.data;
   }
 }
